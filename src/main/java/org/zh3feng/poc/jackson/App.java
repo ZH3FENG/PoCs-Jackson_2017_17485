@@ -23,7 +23,7 @@ public class App
     {
       	System.out.println("creating objectmapper");
 		ObjectMapper objMapper = new ObjectMapper();
-		/*DefaulfType must able*/
+		
 		objMapper.enableDefaultTyping();
 		
 		objMapper.readValue(JSON_STRING.getBytes(), SimpleBean.class);
