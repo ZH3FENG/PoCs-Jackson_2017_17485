@@ -1,0 +1,24 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+     http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="pb" class="java.lang.ProcessBuilder">
+
+		<!-- 
+			Calc for Mac
+			Matches Constructor  ProcessBuilder(List<String> command)
+		-->
+		<constructor-arg>
+			<list>
+				<value>open</value>
+				<value>/Applications/Calculator.app</value>
+			</list>
+		</constructor-arg>
+
+		<!-- <constructor-arg value="calc.exe"/> -->
+		<property name="whatever" value="#{ pb.start() }" />
+	</bean>
+
+</beans>
